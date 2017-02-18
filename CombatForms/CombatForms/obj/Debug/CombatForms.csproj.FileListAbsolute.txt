@@ -1,0 +1,8 @@
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\bin\Debug\CombatForms.exe.config
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\bin\Debug\CombatForms.exe
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\bin\Debug\CombatForms.pdb
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\obj\Debug\CombatForms.Form1.resources
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\obj\Debug\CombatForms.Properties.Resources.resources
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\obj\Debug\CombatForms.csproj.GenerateResource.Cache
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\obj\Debug\CombatForms.exe
+C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\obj\Debug\CombatForms.pdb
