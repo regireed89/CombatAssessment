@@ -52,13 +52,8 @@ namespace CombatForms
             {
                 return false;
             }
-
-
-
             current = states[next.name];
             return true;
-
-
         }
 
         public void Start(T state)

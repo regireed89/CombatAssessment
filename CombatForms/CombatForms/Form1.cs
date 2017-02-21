@@ -16,12 +16,6 @@ namespace CombatForms
         public Form1()
         {
             InitializeComponent();
-            UpdateUI();           
-        }
-
-        private void Attack_Click(object sender, EventArgs e)
-        {
-            GameManager.Instance.activeplayer.Attack();
             UpdateUI();
         }
 
@@ -36,28 +30,36 @@ namespace CombatForms
             Player5.Text = GameManager.Instance.player5.Health.ToString();
             Player6.Text = GameManager.Instance.player6.Health.ToString();
         }
-        private void EndTurn_Click(object sender, EventArgs e)
-        {           
 
+        private void Attack_Click(object sender, EventArgs e)
+        {
+            GameManager.Instance.activeplayer.Attack();
+            UpdateUI();
+        }
+
+        private void EndTurn_Click(object sender, EventArgs e)
+        {
             GameManager.Instance.activeplayer.EndTurn();
             UpdateUI();
-            
-        }   
-     
+        }
+
         private void save_Click(object sender, EventArgs e)
         {
+            DataManagement<Player>.Serialize("ActivePlayer", GameManager.Instance.activeplayer);
 
             UpdateUI();
         }
 
         private void load_Click(object sender, EventArgs e)
         {
+            GameManager.Instance.activeplayer = DataManagement<Player>.Deserialize("ActivePlayer");
             UpdateUI();
+
         }
 
         private void Idle_Click(object sender, EventArgs e)
         {
-            GameManager.Instance.activeplayer.EndTurn();
+            GameManager.Instance.activeplayer.ToIdle();
             UpdateUI();
         }
     }

@@ -13,7 +13,8 @@ namespace CombatForms
         public static void Serialize(string filename, T data)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            TextWriter writter = new StreamWriter(@"..\..\" + filename + ".xml");
+            Directory.CreateDirectory(Environment.CurrentDirectory + "../Saves/");
+            TextWriter writter = new StreamWriter(Environment.CurrentDirectory + "../Saves/" + filename + ".xml");
             serializer.Serialize(writter, data);
             writter.Close();
         }
@@ -22,7 +23,7 @@ namespace CombatForms
         {
             T data;
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            TextReader reader = new StreamReader(@"..\..\" + filename + ".xml");
+            TextReader reader = new StreamReader(@"../Saves/" + filename + ".xml");
             data = (T)serializer.Deserialize(reader);
             reader.Close();
             return data;

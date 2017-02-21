@@ -11,10 +11,10 @@ namespace CombatForms
 
         public Party()
         {
-            
+
         }
         List<Player> players = new List<Player>();
-        public Player activePlayer;
+        //public Player activePlayer;
         int currentID = 0;
 
         public delegate void OnPartyEnd();
@@ -25,7 +25,7 @@ namespace CombatForms
             if (players.Count <= currentID)
             {
                 players.Add(p);
-                activePlayer = players[currentID];
+                GameManager.Instance.activeplayer = players[currentID];
                 p.onEndTurn += GetNext;
                 return;
             }
@@ -33,20 +33,21 @@ namespace CombatForms
             p.onEndTurn += GetNext;
         }
 
-      
+
         public void GetNext()
         {
-          
+
             if (currentID >= players.Count - 1)
             {
                 currentID = 0;
-                activePlayer = players[currentID];
+                GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
                 if (onPartyEnd != null)
                     onPartyEnd.Invoke();
                 return;
             }
             currentID++;
-            activePlayer = players[currentID];
+            GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];
+            GameManager.Instance.activeplayer.ToIdle();
 
         }
 
@@ -56,11 +57,11 @@ namespace CombatForms
             {
                 onPartyEnd.Invoke();
             }
-        }      
+        }
         public void Sort()
         {
-            players.Sort((x, y) =>   x.AttackSpeed.CompareTo(y.AttackSpeed));
-            activePlayer = players[currentID];
+            players.Sort((x, y) => x.AttackSpeed.CompareTo(y.AttackSpeed));
+            GameManager.Instance.activeplayer = players[currentID];
         }
     }
 }

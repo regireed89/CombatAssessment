@@ -20,22 +20,17 @@ namespace CombatForms
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        
+
         static void Main()
         {
             FSM<PlayerStates> playerfsm = new FSM<PlayerStates>();
             playerfsm.AddTransiton(PlayerStates.INIT, PlayerStates.IDLE);
             playerfsm.AddTransiton(PlayerStates.IDLE, PlayerStates.ATTACK);
             playerfsm.AddTransiton(PlayerStates.ATTACK, PlayerStates.IDLE);
+            playerfsm.AddTransiton(PlayerStates.ATTACK, PlayerStates.ENDTURN);
             playerfsm.AddTransiton(PlayerStates.IDLE, PlayerStates.ENDTURN);
             playerfsm.AddTransiton(PlayerStates.ENDTURN, PlayerStates.IDLE);
             playerfsm.AddTransiton(PlayerStates.IDLE, PlayerStates.DEAD);
-
-
-
-            Combat turn = new Combat();
-            turn.AddParty(GameManager.Instance.firstparty);
-            turn.AddParty(GameManager.Instance.secondparty);
 
 
             Party party1 = new Party();
@@ -54,7 +49,7 @@ namespace CombatForms
             Party party2 = new Party();
             Player billy = new Player(100, 10, 9, playerfsm, "billy");
             Player bob = new Player(100, 10, 49, playerfsm, "bob");
-            Player bo = new Player(100, 10, 89, playerfsm,"bo");
+            Player bo = new Player(100, 10, 89, playerfsm, "bo");
             party2.AddPlayer(billy);
             party2.AddPlayer(bob);
             party2.AddPlayer(bo);
@@ -70,11 +65,11 @@ namespace CombatForms
             allplayers.Add(joe);
             allplayers.Add(billy);
             allplayers.Add(bob);
-            allplayers.Add(bo); 
-            party1.Sort();
-            party2.Sort();
+            allplayers.Add(bo);
+            //party1.Sort();
+            //party2.Sort();
             allplayers.Sort((x, y) => x.AttackSpeed.CompareTo(y.AttackSpeed));
-
+            
 
             FSM<GameStates> gamefsm = new FSM<GameStates>();
             gamefsm.AddTransiton(GameStates.INIT, GameStates.RUNNING);
@@ -89,7 +84,7 @@ namespace CombatForms
             GameManager.Instance.activeplayer = allplayers[0];
             GameManager.Instance.activeplayer.ToIdle();
 
-           
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

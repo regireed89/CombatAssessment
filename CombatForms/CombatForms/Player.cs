@@ -43,7 +43,7 @@ namespace CombatForms
         {
             get { return m_name; }
         }
-        FSM<PlayerStates> m_fsm;
+       public FSM<PlayerStates> m_fsm;
         public string currentstate;
         private string m_name;
         private int m_health;
@@ -70,9 +70,13 @@ namespace CombatForms
         public OnEndTurn onEndTurn;
         public void EndTurn()
         {
-            currentstate = m_fsm.Current.ToString();            
-            if(m_fsm.ChangeState(PlayerStates.ENDTURN))          
-                Debug.WriteLine("I'M ENDING MY TURN");            
+            currentstate = m_fsm.Current.ToString();
+
+            if (m_fsm.ChangeState(PlayerStates.ENDTURN))
+            {
+                // Debug.WriteLine("I'M ENDING MY TURN");
+                onEndTurn.Invoke();
+            }
             else
                 Debug.WriteLine("SOMETHING WENT WRONG :(");
         }
@@ -90,21 +94,21 @@ namespace CombatForms
         public void ToIdle()
         {
             currentstate = m_fsm.Current.ToString();
-            if(m_fsm.ChangeState(PlayerStates.IDLE))            
+            if (m_fsm.ChangeState(PlayerStates.IDLE))
                 Idle();
-            
+
         }
         public void Idle()
         {
             currentstate = m_fsm.Current.ToString();
             if (this.Health <= 0)
                 GameManager.Instance.playerlist.Remove(this);
-            
+
         }
 
         public bool Attack()
         {
-            if(m_fsm.ChangeState(PlayerStates.ATTACK))
+            if (m_fsm.ChangeState(PlayerStates.ATTACK))
             {
                 DoDamage(this);
                 return true;
@@ -114,7 +118,7 @@ namespace CombatForms
 
         public void Dead()
         {
-            if(m_fsm.ChangeState(PlayerStates.ENDTURN ))
+            if (m_fsm.ChangeState(PlayerStates.ENDTURN))
                 EndTurn();
         }
 
