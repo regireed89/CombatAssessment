@@ -12,7 +12,6 @@ namespace CombatForms
 {
     public partial class Form1 : Form
     {
-
         public Form1()
         {
             InitializeComponent();
@@ -46,7 +45,6 @@ namespace CombatForms
         private void save_Click(object sender, EventArgs e)
         {
             DataManagement<Player>.Serialize("ActivePlayer", GameManager.Instance.activeplayer);
-
             UpdateUI();
         }
 
@@ -54,7 +52,6 @@ namespace CombatForms
         {
             GameManager.Instance.activeplayer = DataManagement<Player>.Deserialize("ActivePlayer");
             UpdateUI();
-
         }
 
         private void Idle_Click(object sender, EventArgs e)

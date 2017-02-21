@@ -105,20 +105,20 @@ namespace CombatForms
         {
             currentstate = m_fsm.Current.ToString();
             if (this.Health <= 0)
+            {
                 GameManager.Instance.playerlist.Remove(this);
-
+                GameManager.Instance.activeplayer.EndTurn();
+            }
         }
 
         public bool Attack()
         {
             if (m_fsm.ChangeState(PlayerStates.ATTACK))
             {
-                DoDamage(this);
+                DoDamage(GameManager.Instance.playerlist[3]);
                 return true;
             }
-          
             return false;
-          
         }
 
         public void Dead()

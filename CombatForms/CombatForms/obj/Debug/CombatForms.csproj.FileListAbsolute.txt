@@ -9,7 +9,6 @@ C:\Users\chuwi\Desktop\Reginald Reed\IntroCSharp-master\CombatForms\CombatForms\
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\bin\Debug\CombatForms.exe.config
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\bin\Debug\CombatForms.exe
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\bin\Debug\CombatForms.pdb
-C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\obj\Debug\CombatForms.csprojResolveAssemblyReference.cache
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\obj\Debug\CombatForms.Form1.resources
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\obj\Debug\CombatForms.Properties.Resources.resources
 C:\Users\marqj\OneDrive\Documents\GitHub\CombatAssessment\CombatForms\CombatForms\obj\Debug\CombatForms.csproj.GenerateResource.Cache

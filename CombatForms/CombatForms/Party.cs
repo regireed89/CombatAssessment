@@ -20,6 +20,10 @@ namespace CombatForms
         public delegate void OnPartyEnd();
         public OnPartyEnd onPartyEnd;
 
+        /// <summary>
+        /// function to add player to a party
+        /// </summary>
+        /// <param name="p"></param>
         public void AddPlayer(Player p)
         {
             if (players.Count <= currentID)
@@ -37,7 +41,7 @@ namespace CombatForms
         public void GetNext()
         {
 
-            if (currentID <= GameManager.Instance.playerlist.Count)
+            if (currentID == GameManager.Instance.playerlist.Count)
             {
                 currentID = 0;
                 GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];
