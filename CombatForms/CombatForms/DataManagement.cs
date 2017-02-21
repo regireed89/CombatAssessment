@@ -10,7 +10,7 @@ using System.IO;
 namespace CombatForms
 {
     
-    public static class DataManagement<T> 
+    public static class DataManagement<T>
     {
         public static void Serialize(string filename, T data)
         {
@@ -18,8 +18,7 @@ namespace CombatForms
             Directory.CreateDirectory(Environment.CurrentDirectory + "../Saves/");
             TextWriter writter = new StreamWriter(Environment.CurrentDirectory + "../Saves/" + filename + ".xml");
             serializer.Serialize(writter, data);
-            
-           
+            writter.Close();  
         }
 
         public static T Deserialize(string filename)

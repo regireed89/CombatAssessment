@@ -37,7 +37,9 @@ namespace CombatForms
             p.onEndTurn += GetNext;
         }
 
-
+        /// <summary>
+        /// gets the next player
+        /// </summary>
         public void GetNext()
         {
 
@@ -63,6 +65,9 @@ namespace CombatForms
                 onPartyEnd.Invoke();
             }
         }
+        /// <summary>
+        /// sorts players in the party
+        /// </summary>
         public void Sort()
         {
             players.Sort((x, y) => x.AttackSpeed.CompareTo(y.AttackSpeed));

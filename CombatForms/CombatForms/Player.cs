@@ -10,7 +10,6 @@ using System.Xml.Serialization;
 namespace CombatForms
 {
     [Serializable]
-    [XmlInclude(typeof(Player))]
     public class Player : IAttacker, IPlayerState
     {
         public Player() { }
@@ -46,9 +45,9 @@ namespace CombatForms
         {
             get { return m_name; }
         }
-       public FSM<PlayerStates> m_fsm;
+        public FSM<PlayerStates> m_fsm;
         public string currentstate;
-        private string m_name;
+        public string m_name;
         private int m_health;
         private int m_damage;
         private int m_attackspeed;
@@ -67,9 +66,9 @@ namespace CombatForms
         {
             get { return m_attackspeed; }
             set { m_attackspeed = value; }
-        }
-
+        }        
         public delegate void OnEndTurn();
+        [XmlIgnore]
         public OnEndTurn onEndTurn;
         public void EndTurn()
         {
@@ -94,6 +93,9 @@ namespace CombatForms
         {
             this.currentstate = m_fsm.Current.ToString();
         }
+        /// <summary>
+        /// invokes idle function
+        /// </summary>
         public void ToIdle()
         {
             currentstate = m_fsm.Current.ToString();
@@ -101,6 +103,9 @@ namespace CombatForms
                 Idle();
 
         }
+        /// <summary>
+        /// sets players current state to idle
+        /// </summary>
         public void Idle()
         {
             currentstate = m_fsm.Current.ToString();
@@ -115,7 +120,7 @@ namespace CombatForms
         {
             if (m_fsm.ChangeState(PlayerStates.ATTACK))
             {
-                DoDamage(GameManager.Instance.playerlist[3]);
+                DoDamage(this);
                 return true;
             }
             return false;

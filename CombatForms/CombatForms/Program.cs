@@ -14,6 +14,7 @@ namespace CombatForms
         RUNNING,
         QUIT,
     }
+   
     static class Program
     {
         /// <summary>

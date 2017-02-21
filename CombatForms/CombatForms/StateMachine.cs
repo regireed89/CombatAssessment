@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml.Serialization;
 
 namespace CombatForms
 {
@@ -21,10 +21,15 @@ namespace CombatForms
                 states.Add(s.name, s);
             }
         }
+        
         Dictionary<string, State> states;
         private Dictionary<string, List<State>> transitions = new Dictionary<string, List<State>>();
 
-
+        /// <summary>
+        /// addsd transitions to a dictionary of transitions
+        /// </summary>
+        /// <param name="current"></param>
+        /// <param name="next"></param>
         public void AddTransiton(T current, T next)
         {
             State s1 = new State(current as Enum);
@@ -34,17 +39,29 @@ namespace CombatForms
             tmp.Add(s2);
             transitions.Add(s1.name + "->" + s2.name, tmp);
         }
-
+        /// <summary>
+        /// checks if a transition is valid
+        /// </summary>
+        /// <param name="s1"></param>
+        /// <param name="s2"></param>
+        /// <returns></returns>
         public bool ValidTransition(State s1, State s2)
         {
             return (transitions.ContainsKey(s1.name + "->" + s2.name));
         }
         private State current;
-        public Enum Current
+        
+   
+        public State Current
         {
-            get { return current.state_enum; }
-            private set { }
+            get { return current; }
+            set { current = value; }
         }
+        /// <summary>
+        /// changes the current state
+        /// </summary>
+        /// <param name="to"></param>
+        /// <returns></returns>
         public bool ChangeState(T to)
         {
             State next = new State(to as Enum);
@@ -74,10 +91,9 @@ namespace CombatForms
         public State() { }
         public State(Enum e)
         {
-            name = e.ToString();
-            state_enum = e;
+            name = e.ToString();            
         }
         public string name;
-        public Enum state_enum;
+        
     }
 }
