@@ -41,7 +41,7 @@ namespace CombatForms
         public void GetNext()
         {
 
-            if (currentID == GameManager.Instance.playerlist.Count)
+            if (currentID >= GameManager.Instance.playerlist.Count -1)
             {
                 currentID = 0;
                 GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];
