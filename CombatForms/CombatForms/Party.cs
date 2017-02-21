@@ -37,14 +37,15 @@ namespace CombatForms
         public void GetNext()
         {
 
-            if (currentID >= players.Count - 1)
+            if (currentID <= GameManager.Instance.playerlist.Count)
             {
                 currentID = 0;
-                GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
+                GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];
                 if (onPartyEnd != null)
                     onPartyEnd.Invoke();
                 return;
             }
+
             currentID++;
             GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];
             GameManager.Instance.activeplayer.ToIdle();

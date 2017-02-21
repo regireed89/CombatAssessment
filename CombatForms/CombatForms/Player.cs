@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System;
+using System.Xml.Serialization;
 
 namespace CombatForms
 {
+    [Serializable]
+    [XmlInclude(typeof(Player))]
     public class Player : IAttacker, IPlayerState
     {
         public Player() { }
@@ -113,7 +116,9 @@ namespace CombatForms
                 DoDamage(this);
                 return true;
             }
+          
             return false;
+          
         }
 
         public void Dead()

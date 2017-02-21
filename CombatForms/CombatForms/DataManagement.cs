@@ -8,7 +8,7 @@ using System.IO;
 
 namespace CombatForms
 {
-    public static class DataManagement<T>
+    public static class DataManagement<T> 
     {
         public static void Serialize(string filename, T data)
         {

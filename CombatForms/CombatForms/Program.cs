@@ -81,7 +81,7 @@ namespace CombatForms
 
 
             GameManager.Instance.playerlist = allplayers;
-            GameManager.Instance.activeplayer = allplayers[0];
+            GameManager.Instance.activeplayer = GameManager.Instance.playerlist[0];
             GameManager.Instance.activeplayer.ToIdle();
 
 
