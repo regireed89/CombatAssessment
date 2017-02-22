@@ -73,7 +73,7 @@ namespace CombatForms
         public void EndTurn()
         {
             currentstate = m_fsm.Current.ToString();
-
+            GameManager.Instance.lastattacker = GameManager.Instance.activeplayer;
             if (m_fsm.ChangeState(PlayerStates.ENDTURN))
             {
                 // Debug.WriteLine("I'M ENDING MY TURN");
@@ -120,7 +120,7 @@ namespace CombatForms
         {
             if (m_fsm.ChangeState(PlayerStates.ATTACK))
             {
-                DoDamage(this);
+                DoDamage(GameManager.Instance.lastattacker);
                 return true;
             }
             return false;

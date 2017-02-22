@@ -20,7 +20,7 @@ namespace CombatForms
         public Player activeplayer;
         public FSM<GameStates> fsm;
         public List<Player> playerlist;
-        
+        public Player lastattacker;
 
 
         //new up when we access the property Instance

@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace CombatForms
 {
-
+    [Serializable]
     public class FSM<T>
     {
         public FSM()
@@ -91,9 +91,8 @@ namespace CombatForms
         public State() { }
         public State(Enum e)
         {
-            name = e.ToString();            
+            name = e.ToString();         
         }
-        public string name;
-        
+        public string name;      
     }
 }

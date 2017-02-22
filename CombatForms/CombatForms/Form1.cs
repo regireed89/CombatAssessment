@@ -20,7 +20,7 @@ namespace CombatForms
 
         private void UpdateUI()
         {
-            richTextBox2.Text = GameManager.Instance.activeplayer.currentstate.ToString();
+            richTextBox2.Text = GameManager.Instance.activeplayer.currentstate;
             richTextBox1.Text = GameManager.Instance.activeplayer.Name;
             Player1.Text = GameManager.Instance.player1.Health.ToString();
             Player2.Text = GameManager.Instance.player2.Health.ToString();
@@ -28,6 +28,12 @@ namespace CombatForms
             Player4.Text = GameManager.Instance.player4.Health.ToString();
             Player5.Text = GameManager.Instance.player5.Health.ToString();
             Player6.Text = GameManager.Instance.player6.Health.ToString();
+            progressBar1.Value = GameManager.Instance.player1.Health;
+            progressBar2.Value = GameManager.Instance.player2.Health;
+            progressBar3.Value = GameManager.Instance.player3.Health;
+            progressBar4.Value = GameManager.Instance.player4.Health;
+            progressBar5.Value = GameManager.Instance.player5.Health;
+            progressBar6.Value = GameManager.Instance.player6.Health;
         }
 
         private void Attack_Click(object sender, EventArgs e)
@@ -52,7 +58,7 @@ namespace CombatForms
         {
             DataManagement<Player>.Serialize("ActivePlayer", GameManager.Instance.activeplayer);
             DataManagement<string>.Serialize("ActivePlayerState", GameManager.Instance.activeplayer.currentstate);
-            DataManagement<List<Player>>.Serialize("MyList", GameManager.Instance.playerlist);
+            DataManagement<List<Player>>.Serialize("PlayerList", GameManager.Instance.playerlist);
             UpdateUI();
         }
 
@@ -60,7 +66,7 @@ namespace CombatForms
         {
             GameManager.Instance.activeplayer = DataManagement<Player>.Deserialize("ActivePlayer");
             GameManager.Instance.activeplayer.currentstate = DataManagement<string>.Deserialize("ActivePlayerState");
-            GameManager.Instance.playerlist = DataManagement<List<Player>>.Deserialize("MyList");
+            GameManager.Instance.playerlist = DataManagement<List<Player>>.Deserialize("PlayerList");            
             UpdateUI();
         }
 
