@@ -41,17 +41,17 @@ namespace CombatForms
             m_fsm.Start(PlayerStates.INIT);
             currentstate = m_fsm.Current.ToString();
         }
-        public string Name
-        {
-            get { return m_name; }
-        }
+       
         public FSM<PlayerStates> m_fsm;
         public string currentstate;
         public string m_name;
         private int m_health;
         private int m_damage;
         private int m_attackspeed;
-
+        public string Name
+        {
+            get { return m_name; }
+        }
         public int Health
         {
             get { return m_health; }
@@ -70,6 +70,9 @@ namespace CombatForms
         public delegate void OnEndTurn();
         [XmlIgnore]
         public OnEndTurn onEndTurn;
+        /// <summary>
+        /// what to do when a player turn ends
+        /// </summary>
         public void EndTurn()
         {
             currentstate = m_fsm.Current.ToString();
@@ -78,17 +81,22 @@ namespace CombatForms
             {
                 // Debug.WriteLine("I'M ENDING MY TURN");
                 onEndTurn.Invoke();
-            }
+            }               
             else
                 Debug.WriteLine("SOMETHING WENT WRONG :(");
         }
-
+        /// <summary>
+        /// how damage is being done to a player
+        /// </summary>
+        /// <param name="p"></param>
         public void DoDamage(Player p)
         {
             currentstate = m_fsm.Current.ToString();
             p.Health -= this.Damage;
         }
-
+        /// <summary>
+        /// sets the players current state  
+        /// </summary>
         public void Initialize()
         {
             this.currentstate = m_fsm.Current.ToString();
@@ -115,7 +123,10 @@ namespace CombatForms
                 GameManager.Instance.activeplayer.EndTurn();
             }
         }
-
+        /// <summary>
+        /// players function for attacking 
+        /// </summary>
+        /// <returns></returns>
         public bool Attack()
         {
             if (m_fsm.ChangeState(PlayerStates.ATTACK))
@@ -125,16 +136,14 @@ namespace CombatForms
             }
             return false;
         }
-
+      /// <summary>
+      /// what to do when a player is dead
+      /// </summary>
         public void Dead()
         {
             if (m_fsm.ChangeState(PlayerStates.ENDTURN))
                 EndTurn();
         }
-
-        public void Update()
-        {
-            currentstate = m_fsm.Current.ToString();
-        }
+       
     }
 }

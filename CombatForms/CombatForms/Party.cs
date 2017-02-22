@@ -9,10 +9,7 @@ namespace CombatForms
     public class Party
     {
 
-        public Party()
-        {
-
-        }
+        public Party(){}
         List<Player> players = new List<Player>();
         //public Player activePlayer;
         int currentID = 0;
@@ -51,6 +48,12 @@ namespace CombatForms
                     onPartyEnd.Invoke();
                 return;
             }
+            if (GameManager.Instance.activeplayer.Health <= 0)
+            {
+                GameManager.Instance.playerlist.Remove(GameManager.Instance.activeplayer);
+                GameManager.Instance.activeplayer.Dead();
+            }
+                
 
             currentID++;
             GameManager.Instance.activeplayer = GameManager.Instance.playerlist[currentID];

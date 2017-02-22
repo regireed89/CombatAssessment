@@ -13,6 +13,6 @@ namespace CombatForms
         bool Attack();
         void EndTurn();
         void Dead();
-        void Update();
+        
     }
 }

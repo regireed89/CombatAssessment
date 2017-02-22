@@ -35,9 +35,9 @@ namespace CombatForms
 
 
             Party party1 = new Party();
-            Player jim = new Player(100, 10, 60, playerfsm, "jim");
-            Player john = new Player(100, 10, 41, playerfsm, "john");
-            Player joe = new Player(100, 10, 65, playerfsm, "joe");
+            Player jim = new Player(100, 10, 4, playerfsm, "jim");
+            Player john = new Player(100, 10, 2, playerfsm, "john");
+            Player joe = new Player(100, 10, 6, playerfsm, "joe");
             party1.AddPlayer(jim);
             party1.AddPlayer(john);
             party1.AddPlayer(joe);
@@ -48,9 +48,9 @@ namespace CombatForms
 
 
             Party party2 = new Party();
-            Player billy = new Player(100, 10, 9, playerfsm, "billy");
-            Player bob = new Player(100, 10, 49, playerfsm, "bob");
-            Player bo = new Player(100, 10, 89, playerfsm, "bo");
+            Player billy = new Player(100, 10, 1, playerfsm, "billy");
+            Player bob = new Player(100, 10, 5, playerfsm, "bob");
+            Player bo = new Player(100, 10, 3, playerfsm, "bo");
             party2.AddPlayer(billy);
             party2.AddPlayer(bob);
             party2.AddPlayer(bo);
