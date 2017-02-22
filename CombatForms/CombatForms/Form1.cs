@@ -52,6 +52,7 @@ namespace CombatForms
         {
             DataManagement<Player>.Serialize("ActivePlayer", GameManager.Instance.activeplayer);
             DataManagement<string>.Serialize("ActivePlayerState", GameManager.Instance.activeplayer.currentstate);
+            DataManagement<List<Player>>.Serialize("MyList", GameManager.Instance.playerlist);
             UpdateUI();
         }
 
@@ -59,6 +60,7 @@ namespace CombatForms
         {
             GameManager.Instance.activeplayer = DataManagement<Player>.Deserialize("ActivePlayer");
             GameManager.Instance.activeplayer.currentstate = DataManagement<string>.Deserialize("ActivePlayerState");
+            GameManager.Instance.playerlist = DataManagement<List<Player>>.Deserialize("MyList");
             UpdateUI();
         }
 
