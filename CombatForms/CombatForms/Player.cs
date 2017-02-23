@@ -52,7 +52,7 @@ namespace CombatForms
 
         public FSM<PlayerStates> m_fsm;
         public string currentstate;
-
+     
         
         public string Name
         {
@@ -147,6 +147,8 @@ namespace CombatForms
             if (m_fsm.ChangeState(PlayerStates.ENDTURN))
                 EndTurn();
         }
+         
+   
        
     }
 }

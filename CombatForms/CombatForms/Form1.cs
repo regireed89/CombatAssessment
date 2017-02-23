@@ -69,8 +69,6 @@ namespace CombatForms
             GameManager.Instance.activeplayer.currentstate = DataManagement<string>.Deserialize("ActivePlayerState");
             GameManager.Instance.playerlist = DataManagement<List<Player>>.Deserialize("PlayerList");            
             UpdateUI();
-        }
-
-        
+        }     
     }
 }

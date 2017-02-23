@@ -9,14 +9,7 @@ using System.Xml.Serialization;
 namespace CombatForms
 {
     [Serializable]
-    public enum PlayerStates
-    {
-        INIT = 0,
-        IDLE = 1,
-        ATTACK = 2,
-        ENDTURN = 3,
-        DEAD = 4
-    }
+    
     public class FSM<T>
     {
         public FSM()
