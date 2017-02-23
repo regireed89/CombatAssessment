@@ -71,9 +71,6 @@ namespace CombatForms
             UpdateUI();
         }
 
-        private void Restart_Click(object sender, EventArgs e)
-        {
-          
-        }
+        
     }
 }

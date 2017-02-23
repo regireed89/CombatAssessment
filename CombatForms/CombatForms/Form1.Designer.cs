@@ -51,7 +51,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.Idle = new System.Windows.Forms.Button();
-            this.Restart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // save
@@ -260,22 +259,11 @@
             this.Idle.UseVisualStyleBackColor = true;
             this.Idle.Click += new System.EventHandler(this.Idle_Click);
             // 
-            // Restart
-            // 
-            this.Restart.Location = new System.Drawing.Point(537, 509);
-            this.Restart.Name = "Restart";
-            this.Restart.Size = new System.Drawing.Size(71, 27);
-            this.Restart.TabIndex = 25;
-            this.Restart.Text = "Restart";
-            this.Restart.UseVisualStyleBackColor = true;
-            this.Restart.Click += new System.EventHandler(this.Restart_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 548);
-            this.Controls.Add(this.Restart);
             this.Controls.Add(this.Idle);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
@@ -331,7 +319,6 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.Button Idle;
-        private System.Windows.Forms.Button Restart;
     }
 }
 

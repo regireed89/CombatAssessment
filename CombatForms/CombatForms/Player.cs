@@ -50,7 +50,7 @@ namespace CombatForms
         private int m_attackspeed;
         public string Name
         {
-            get { return m_name; }
+            get;set;
         }
         public int Health
         {
