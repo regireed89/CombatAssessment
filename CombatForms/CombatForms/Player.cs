@@ -10,63 +10,66 @@ using System.Xml.Serialization;
 namespace CombatForms
 {
     [Serializable]
+    public enum PlayerStates
+    {
+        INIT = 0,
+        IDLE = 1,
+        ATTACK = 2,
+        ENDTURN = 3,
+        DEAD = 4
+    }
     public class Player : IAttacker, IPlayerState
     {
         public Player() { }
         public Player(int health, int damage, int speed, FSM<PlayerStates> fsm, string n)
         {
-            m_health = health;
-            m_damage = damage;
-            m_attackspeed = speed;
+            Health = health;
+            Damage = damage;
+            AttackSpeed = speed;
             m_fsm = fsm;
             m_fsm.Start(PlayerStates.INIT);
             currentstate = m_fsm.Current.ToString();
-            m_name = n;
+            Name = n;
         }
         public Player(int health, int damage, int speed, FSM<PlayerStates> fsm)
         {
-            m_health = health;
-            m_damage = damage;
-            m_attackspeed = speed;
+            Health = health;
+            Damage = damage;
+            AttackSpeed = speed;
             m_fsm = fsm;
             m_fsm.Start(PlayerStates.INIT);
             currentstate = m_fsm.Current.ToString();
         }
         public Player(int health, int damage, int speed)
         {
-            m_health = health;
-            m_damage = damage;
-            m_attackspeed = speed;
+            Health = health;
+            Damage = damage;
+            AttackSpeed = speed;
             m_fsm = new FSM<PlayerStates>();
             m_fsm.Start(PlayerStates.INIT);
             currentstate = m_fsm.Current.ToString();
         }
-       
+
         public FSM<PlayerStates> m_fsm;
         public string currentstate;
-        public string m_name;
-        private int m_health;
-        private int m_damage;
-        private int m_attackspeed;
+
+        
         public string Name
         {
-            get;set;
+            get; set;
         }
         public int Health
         {
-            get { return m_health; }
-            set { m_health = value; }
+            get;set;
         }
         public int Damage
         {
-            get { return m_damage; }
-            set { m_damage = value; }
+            get;set;
         }
         public int AttackSpeed
         {
-            get { return m_attackspeed; }
-            set { m_attackspeed = value; }
-        }        
+            get;set;
+        }
         public delegate void OnEndTurn();
         [XmlIgnore]
         public OnEndTurn onEndTurn;
@@ -81,7 +84,7 @@ namespace CombatForms
             {
                 // Debug.WriteLine("I'M ENDING MY TURN");
                 onEndTurn.Invoke();
-            }               
+            }
             else
                 Debug.WriteLine("SOMETHING WENT WRONG :(");
         }
@@ -136,9 +139,9 @@ namespace CombatForms
             }
             return false;
         }
-      /// <summary>
-      /// what to do when a player is dead
-      /// </summary>
+        /// <summary>
+        /// what to do when a player is dead
+        /// </summary>
         public void Dead()
         {
             if (m_fsm.ChangeState(PlayerStates.ENDTURN))

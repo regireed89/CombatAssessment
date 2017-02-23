@@ -30,7 +30,7 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EAEACADIAAAAAQAAAAADAQQAAIAAAApAAAAACAAABAg=</HashCode>
+      <HashCode>AAAACADAAAAAAQAAAAADAAQAAIAAAApAAAAACAAABAg=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -40,13 +40,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DataManagement.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CombatForms.FSM&lt;T&gt;">
-    <Position X="3.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAACAABCAAAACAAAAAgAAAACAEAAAAAAAAAAg=</HashCode>
-      <FileName>StateMachine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CombatForms.GameManager">
@@ -60,6 +53,13 @@
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CombatForms.FSM&lt;T&gt;">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAABCAAAACAAAAAgAAAACAEAAAAAAAAAAg=</HashCode>
       <FileName>StateMachine.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -77,5 +77,19 @@
       <FileName>IPlayerState.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="CombatForms.GameStates">
+    <Position X="8" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAABAACAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CombatForms.PlayerStates">
+    <Position X="8" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAEAAAAAgAAAAAAgAAAAAAAAAACAAAA=</HashCode>
+      <FileName>StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

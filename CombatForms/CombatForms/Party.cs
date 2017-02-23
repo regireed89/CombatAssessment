@@ -68,6 +68,7 @@ namespace CombatForms
                 onPartyEnd.Invoke();
             }
         }
+
         /// <summary>
         /// sorts players in the party
         /// </summary>
