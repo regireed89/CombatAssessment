@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 namespace CombatForms
 {
     [Serializable]
-    
     public class FSM<T>
     {
         public FSM()
@@ -84,8 +83,6 @@ namespace CombatForms
 
         }
     }
-
-
 
     public class State
     {

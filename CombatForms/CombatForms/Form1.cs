@@ -33,8 +33,7 @@ namespace CombatForms
             progressBar3.Value = GameManager.Instance.player3.Health;
             progressBar4.Value = GameManager.Instance.player4.Health;
             progressBar5.Value = GameManager.Instance.player5.Health;
-            progressBar6.Value = GameManager.Instance.player6.Health;
-            
+            progressBar6.Value = GameManager.Instance.player6.Health;            
         }
 
         private void Attack_Click(object sender, EventArgs e)
